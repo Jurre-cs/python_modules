@@ -3,14 +3,19 @@ class plant():
         self.type = type
         self.height = height
         self.aged = aged
+
     def printing(self):
         print(self.type, self.height, self.aged)
+
     def get_info(self):
-        return(self.type, self.height, self.aged)
+        return (self.type, self.height, self.aged)
+
     def grow(self):
         self.height = self.height + 1
+
     def age(self):
         self.aged = self.aged + 1
+
 
 if __name__ == "__main__":
     plant1 = plant("roos", 20, 13)

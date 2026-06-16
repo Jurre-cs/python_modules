@@ -3,28 +3,38 @@ class Plant():
         self.types = types
         self.height = height
         self.aged = aged
-    
+
+
 class Flower(Plant):
     def __init__(self, types, height, aged, colour):
         super().__init__(types, height, aged)
         self.colour = colour
         print(f"{types} (Flower): {height}, {aged} days, {colour} colour")
+
     def bloom():
         print("Flower is blooming beautifully!")
+
 
 class Tree(Plant):
     def __init__(self, types, height, aged, tree_diameter):
         super().__init__(types, height, aged)
         self.tree_diameter = tree_diameter
-        print(f"{types} (Tree): {height}, {aged} days, {tree_diameter}cm diameter")
+        print(f"{types} (Tree): {height}, {aged} days, \
+            {tree_diameter}cm diameter")
+
     def produce_shade(self):
-        print(f"{self.types} provides {self.tree_diameter * self.height / 1000 * 3.14} square meters of shade")
+        print(f"{self.types} provides \
+            {self.tree_diameter * self.height / 1000 * 3.14} \
+            square meters of shade")
+
 
 class Vegetable(Plant):
     def __init__(self, types, height, aged, harvest_season, nutritional_value):
         super().__init__(types, height, aged)
-        print(f"{types} (vegetable): {height}cm, {aged} days, {harvest_season} harvest")
+        print(f"{types} (vegetable): {height}cm, {aged} days, \
+            {harvest_season} harvest")
         print(f"{types} is rich in {nutritional_value}")
+
 
 if __name__ == "__main__":
     print("=== Garden Plant Types ===\n")
@@ -40,6 +50,7 @@ if __name__ == "__main__":
     tree2 = Tree("spruce", 690, 1829, 60)
     tree2.produce_shade()
     print()
-    Vegetable1 = Vegetable("iceberg lettuce", 30, 29, "spring/autumn", "no vitamines")
+    Vegetable1 = Vegetable
+    ("iceberg lettuce", 30, 29, "spring/autumn", "no vitamines")
     print()
     Vegetable2 = Vegetable("spinach", 20, 37, "winter", "iron")

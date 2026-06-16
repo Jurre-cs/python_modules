@@ -11,4 +11,6 @@ def ft_seed_inventory(type, amount, what):
         print(f"{what}")
     else:
         print(f"{type} seeds: {what}")
+
+
 ft_seed_inventory("lettuce", 12, "grams")
