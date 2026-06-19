@@ -1,4 +1,4 @@
-def ft_seed_inventory(type, amount, what):
+def ft_seed_inventory(type, amount, what) -> None:
     if what == "packets":
         what = f"{amount} packets available"
     elif what == "grams":
