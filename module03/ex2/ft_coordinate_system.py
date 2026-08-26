@@ -1,50 +1,42 @@
-import sys
 import math
 
-def mathing(position):
-	for n in position:
-		n = float(n)
-	distance = math.sqrt((position[0] - 0.0)**2 + (position[1] - 0.0)**2 + (position[2] - 0.0)**2)
-	distance = "%.2f" % distance
-	return distance
+
+def get_player_pos():
+    coords = None
+    index = 0
+    while coords is None:
+        coords = input("Enter new coordinates as floats in format 'x,y,z': ")
+        try:
+            if ',' not in coords or len(coords.split(',')) != 3:
+                raise SyntaxError("Invalid syntax")
+            for coord in coords.split(','):
+                float(coord)
+                index += 1
+            return (tuple([float(x) for x in coords.split(',')]))
+        except SyntaxError as e:
+            print(e)
+        except ValueError:
+            print(f"Error on parameter '{coords.split(',')[index]}': \
+could not convert to float: '{coords.split(',')[index]}'")
+        coords = None
+    return get_player_pos()
+
+
+def use_player_pos():
+    pos = get_player_pos()
+    print(f"Got a first tuple: {pos}")
+    print(f"it includes: X={pos[0]}, Y={pos[1]}, Z={pos[2]}")
+    distance = math.sqrt(pos[0] ** 2 + pos[1] ** 2 + pos[2] ** 2)
+    print(f"Distance to center: {round(distance, 4)}\n")
+
+
+def main():
+    print("=== Game Coordinate System ===\n")
+    print("Get a first set of coordinates")
+    use_player_pos()
+    print("Get a second set of coordinates")
+    use_player_pos()
+
 
 if __name__ == "__main__":
-	print("=== Game Coordinate System ===\n")
-	position = sys.argv
-	if len(sys.argv) != 4:
-		x, y, z = 3, 4, 0
-	else:
-		x, y, z = position[1:]
-	cords = (10, 20, 5)
-	errorexample = ("abc", "def", "ghi")
-	print(f"Position created:  {cords}")
-
-	try:
-		for num1 in cords:
-			num1 = int(num1)
-		print(f"Distance between (0, 0, 0) and {cords}: {mathing(cords)}\n")
-	except ValueError:
-		print(f"could not convert {num1} to float\n")
-
-	try:
-		print(f"Parsing coordinates: \"{x},{y},{z}\"")
-		position = (float(x), float(y), float(z))
-		print(f"Parsed position: ({x}, {y}, {z})")
-		print(f"Distance between (0, 0, 0) and ({x}, {y}, {z}): {mathing(position)}")
-	except ValueError:
-		print(f"Parsing invalid coordinates: {position}\n")
-
-	try:
-		errorexample = tuple(errorexample)
-	except ValueError:
-		print(f'Parsing invalid coordinates: "{errorexample}"')
-	try:
-		for num3 in errorexample:
-			num3 = int(num3)
-	except ValueError:
-		print(f"Error parsing coordinates: invalid literal for int() with base 10: '{num3}'")
-		print(f"Error details - Type: ValueError, Args: (\"invalid literal for int() with base 10: '{num3}'\",)\n")
-
-	print("Unpacking demonstration:") 
-	print(f"Player at x={x}, y={y}, z={z}")
-	print(f"Coordinates X={x}, Y={y}, Z={z}")
+    main()

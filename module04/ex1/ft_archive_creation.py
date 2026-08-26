@@ -1,22 +1,47 @@
+import sys
+import typing
+
 if __name__ == "__main__":
-    file_name = "new_discovery"
-    print("=== CYBER ARCHIVES - PRESERVATION SYSTEM ===\n\n"
-          f"Initializing new storage unit: {file_name}\n"
-          "Storage unit created successfully...\n\n"
-          "Inscribing preservation data...")
+    if len(sys.argv) != 2:
+        print("Usage: ft_ancient_text.py <file>")
+        sys.exit(1)
+
+    filename = sys.argv[1]
+
+    print("=== Cyber Archives Recovery ===")
+    print(f"Accessing file '{filename}'")
+
     try:
-        with open(file_name, "w") as file:
-            file.write("[ENTRY 001] New quantum algorithm discovered\n")
-            file.write("[ENTRY 002] Efficiency increased by 347%\n")
-            file.write("[ENTRY 003] Archived by Data Archivist trainee\n")
-            file.close
+        fragment: typing.IO = open(filename, "r")
+    except OSError as e:
+        print(f"Error opening file '{filename}': {e}")
+        sys.exit(1)
 
-        file = open(file_name)
-        text = file.read()
-        print(text)
-        file.close()
-        print("Data inscription complete. Storage unit sealed.")
-        print(f"Archive '{file_name}' ready for long-term preservation.")
+    content = fragment.read()
 
-    except FileNotFoundError:
-        print("File not found!!!")
+    print("---")
+    print(content, end="")
+    print("---")
+
+    fragment.close()
+    print(f"File '{filename}' closed")
+
+    print("Transform data:")
+    lines = content.split("\n")
+    transformed = [line + "#" for line in lines if line]
+
+    print("---")
+    for line in transformed:
+        print(line)
+    print("---")
+
+    new_filename = input("Enter new file name (or empty): ")
+    if new_filename == "":
+        print("Not saving data")
+    else:
+        print(f"Saving data to '{new_filename}'")
+        out: typing.IO = open(new_filename, "w")
+        out.write("\n".join(transformed) + "\n")
+        out.close()
+        print(f"Data saved in file '{new_filename}'")
+fragment: typing.IO = open(filename, "a")

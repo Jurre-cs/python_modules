@@ -1,14 +1,26 @@
+import sys
+import typing
+
+
 if __name__ == "__main__":
-    print("=== CYBER ARCHIVES - DATA RECOVERY SYSTEM ===\n")
-    print("Accessing Storage Vault: ancient_fragment.txt")
-    print("Connection established...\n")
+    if len(sys.argv) != 2:
+        print("Usage: ft_ancient_text.py <file>")
+        sys.exit(1)
+
+    filename = sys.argv[1]
+
+    print("=== Cyber Archives Recovery ===")
+    print(f"Accessing file '{filename}'")
 
     try:
-        file = open("ancient_fragment.txt", "r")
-        print("RECOVERED DATA:")
-        text = file.read()
-        print(text)
-        print("\nData recovery complete. Storage unit disconnected.")
-        file.close()
-    except FileNotFoundError:
-        print("file not found")
+        fragment: typing.IO = open(filename, "r")
+    except OSError as e:
+        print(f"Error opening file '{filename}': {e}")
+        sys.exit(1)
+
+    print("---")
+    print(fragment.read(), end="")
+    print("---")
+
+    fragment.close()
+    print(f"File '{filename}' closed")
