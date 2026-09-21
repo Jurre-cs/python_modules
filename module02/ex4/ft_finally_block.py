@@ -1,4 +1,4 @@
-def water_plant(plant_name):
+def water_plant(plant_name: str):
     try:
         if plant_name[0].islower():
             raise Exception(f"Caught PlantError: \

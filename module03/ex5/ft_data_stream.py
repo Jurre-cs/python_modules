@@ -12,7 +12,7 @@ def gen_event():
         yield (name, action)
 
 
-def consume_event(events):
+def consume_event(events: list):
     while events:
         event = random.choice(events)
         events.remove(event)

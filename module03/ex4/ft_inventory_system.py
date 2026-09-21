@@ -4,6 +4,9 @@ if __name__ == "__main__":
     args_dict = {}
     print("=== Inventory System Analysis ===")
 
+    if len(sys.argv) < 2:
+        print("No items handed in!")
+        sys.exit()
     for arg in sys.argv[1:]:
         if ":" not in arg:
             print(f"Error - invalid parameter '{arg}'")
@@ -27,12 +30,12 @@ if __name__ == "__main__":
         percentage = (quantity / total_quantity) * 100
         print(f"Item {item} represents {percentage:.1f}%")
 
-    most_abundant = max(args_dict, key=args_dict.get)
-    least_abundant = min(args_dict, key=args_dict.get)
+    most_abundant = max(args_dict, key=args_dict.__getitem__)
+    least_abundant = min(args_dict, key=args_dict.__getitem__)
     print(f"Item most abundant: {most_abundant} with quantity \
-    {args_dict[most_abundant]}")
+{args_dict[most_abundant]}")
     print(f"Item least abundant: {least_abundant} with quantity \
-    {args_dict[least_abundant]}")
+{args_dict[least_abundant]}")
 
     args_dict['magic_item'] = 1
     print(f"Updated inventory: {args_dict}")

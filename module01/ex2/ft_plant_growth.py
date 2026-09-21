@@ -1,3 +1,4 @@
+
 class Plant:
     def __init__(self, name: str, height: float, age_days: int,
                  growth_rate: float) -> None:
@@ -20,7 +21,6 @@ class Plant:
 def main() -> None:
     rose = Plant("Rose", 25.0, 30, 0.8)
     start_height: float = rose.height
-
     print("=== Garden Plant Growth ===")
     rose.show()
 

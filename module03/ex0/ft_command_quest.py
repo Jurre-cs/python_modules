@@ -10,7 +10,7 @@ if __name__ == "__main__":
         print("Total arguments: 1")
     else:
         print(f"Arguments received: {len(args) - 1}")
-        for arg in args[1:]:  # Skip the program name
+        for arg in args[1:]:
             print(f"Argument {amount}: {arg}")
             amount += 1
         print(f"Total arguments: {len(args)}")

@@ -1,4 +1,4 @@
-def garden_operations(operation_number):
+def garden_operations(operation_number: int):
     if operation_number == 0:
         try:
             print("testing operation 0...")
@@ -20,7 +20,7 @@ def garden_operations(operation_number):
     elif operation_number == 3:
         try:
             print("testing operation 3...")
-            "string" + 1
+            raise TypeError('can only concatenate str (not "int") to str')
         except TypeError as Error:
             raise TypeError(f"Caught TypeError: {Error}")
     else:

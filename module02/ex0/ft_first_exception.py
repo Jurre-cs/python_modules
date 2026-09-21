@@ -1,8 +1,8 @@
-def input_temperature(temp_str):
-    print(f"input data is '{temp_str}'")
+def input_temperature(temp_int: int):
+    print(f"input data is '{temp_int}'")
     try:
-        temp_str = int(temp_str)
-        print(f"Temperature is now {temp_str}°C\n")
+        temp_int = int(temp_int)
+        print(f"Temperature is now {temp_int}°C\n")
     except ValueError as Error:
         raise ValueError(f"{Error}\n")
 

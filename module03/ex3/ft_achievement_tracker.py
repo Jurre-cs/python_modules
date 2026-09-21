@@ -4,7 +4,6 @@ import random
 def gen_player_achievements():
     print("=== Achievement Tracker System ===")
 
-    # Pool of possible achievements to randomly distribute from
     achievement_pool = [
         'Crafting Genius', 'World Savior', 'Master Explorer',
         'Collector Supreme', 'Untouchable', 'Boss Slayer', 'Strategist',

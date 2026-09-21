@@ -1,5 +1,5 @@
 class PlantError(Exception):
-    def __init__(self, age, plant_type):
+    def __init__(self, age: int, plant_type: str):
         try:
             if age > 67:
                 raise Exception(f"Caught PlantError: \
@@ -12,7 +12,7 @@ Negative input! Not possible!\n")
 
 
 class WaterError(Exception):
-    def __init__(self, capacity):
+    def __init__(self, capacity: int):
         try:
             if capacity > 100:
                 raise Exception("Caught WaterError: \
@@ -25,7 +25,7 @@ Not enough water in the tank!!\n")
 
 
 class GardenError(Exception):
-    def __init__(self, age, plant_type, capacity):
+    def __init__(self, age: int, plant_type: str, capacity: int):
         try:
             if age > 67:
                 raise Exception(f"Caught GardenError: \
