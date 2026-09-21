@@ -18,7 +18,7 @@ if __name__ == "__main__":
         print(f"Error opening file '{filename}': {e}", file=sys.stderr)
         sys.exit(1)
 
-    content = fragment.read()
+    content: str = fragment.read()
 
     print("---")
     print(content, end="")

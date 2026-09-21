@@ -44,4 +44,3 @@ if __name__ == "__main__":
         out.write("\n".join(transformed) + "\n")
         out.close()
         print(f"Data saved in file '{new_filename}'")
-fragment: typing.IO = open(filename, "a")
