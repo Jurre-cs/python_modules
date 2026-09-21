@@ -1,7 +1,8 @@
 import random
+from collections.abc import Iterator
 
 
-def gen_event():
+def gen_event() -> Iterator[tuple[str, str]]:
     names = ['bob', 'alice', 'charlie', 'dylan']
     actions = ['run', 'eat', 'sleep', 'grab', 'move', 'climb', 'swim', 'use',
                'release']

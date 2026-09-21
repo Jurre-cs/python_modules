@@ -1,7 +1,7 @@
 import math
 
 
-def get_player_pos():
+def get_player_pos() -> tuple:
     coords = None
     index = 0
     while coords is None:

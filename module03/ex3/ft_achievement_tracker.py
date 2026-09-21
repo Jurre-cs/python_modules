@@ -1,7 +1,7 @@
 import random
 
 
-def gen_player_achievements():
+def gen_player_achievements() -> None:
     print("=== Achievement Tracker System ===")
 
     achievement_pool = [
@@ -13,7 +13,9 @@ def gen_player_achievements():
 
     players = ['alice', 'bob', 'charlie', 'dylan']
 
-    def random_achievements(pool, min_count=3, max_count=7):
+    def random_achievements(
+            pool: list, min_count: int = 3, max_count: int = 7
+            ) -> set:
         count = random.randint(min_count, max_count)
         return set(random.sample(pool, count))
 
