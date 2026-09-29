@@ -1,0 +1,12 @@
+# Secrets - never commit real configuration
+.env
+
+# Virtual environments
+matrix_env/
+venv/
+.venv/
+
+# Python caches
+__pycache__/
+*.pyc
+.mypy_cache/
